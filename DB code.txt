@@ -1,0 +1,152 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table Products {
+  id integer [primary key]
+  title varchar
+  summary varchar
+  content text
+  brandId integer
+  categoryId integer
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table Brands {
+  id integer [primary key]
+  title varchar
+  metaTitle varchar
+  content text
+}
+
+Table Users {
+  id integer [primary key]
+  roleId integer
+  firstName varchar
+  middleName varchar
+  lastName varchar
+  username varchar
+  mobile varchar
+  email varchar
+  passwordHash varchar
+  registeredAt timestamp
+  lastLogin timestamp
+  intro text
+  profile text
+}
+
+Table Orders {
+  id integer [primary key]
+  userId integer
+  type varchar
+  status varchar
+  createdAt timestamp
+  updatedAt timestamp
+  content text
+}
+
+Table Order_items {
+  id integer [primary key]
+  orderId integer
+  productId integer
+  sku varchar
+  price decimal
+  discount decimal [default: 0]
+  quantity integer
+  sold integer [default: 0]
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table Transactions {
+  id integer [primary key]
+  orderId integer
+  userId integer
+  type varchar
+  code varchar
+  status varchar
+  subTotal decimal
+  itemDiscount decimal [default: 0]
+  tax decimal [default: 0]
+  shipping decimal [default: 0]
+  total decimal
+  promo decimal [default: 0]
+  discount decimal [default: 0]
+  grandTotal decimal
+  createdAt timestamp
+  updatedAt timestamp
+  content text
+}
+
+Table Addresses {
+  id integer [primary key]
+  userId integer
+  type varchar
+  firstName varchar
+  middleName varchar
+  lastName varchar
+  mobile varchar
+  email varchar
+  line1 varchar
+  line2 varchar
+  city varchar
+  province varchar
+  country varchar
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table User_meta {
+  id integer [primary key]
+  userId integer
+  key varcharw
+  value text
+}
+
+Table Product_meta {
+  id integer [primary key]
+  productId integer
+  key varchar
+  value text
+}
+
+Table Categories {
+  id integer [primary key]
+  title varchar
+  parentId integer
+}
+
+Table Content {
+  id integer [primary key]
+  entityType varchar
+  entityId integer
+  type varchar
+  content text
+}
+
+Ref: Products.brand_id > Brands.id
+Ref: Products.category_id > Categories.id
+
+Ref: Users.id < Orders.user_id
+Ref: Users.id < Transactions.user_id
+Ref: Users.id < Addresses.user_id
+
+Ref: Orders.id > Order_items.order_id
+Ref: Orders.id > Transactions.order_id
+
+Ref: Order_items.product_id > Products.id
+
+Ref: Transactions.order_id > Orders.id
+Ref: Transactions.user_id > Users.id
+
+Ref: Addresses.user_id > Users.id
+
+Ref: User_meta.user_id > Users.id
+
+Ref: Product_meta.product_id > Products.id
+
+Ref: Categories.id > Products.category_id
+
+Ref: Content.product_id > Products.id
+Ref: Content.brand_id > Brands.id
+Ref: Content.category_id > Categories.id
