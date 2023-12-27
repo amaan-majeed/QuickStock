@@ -1,0 +1,507 @@
+Use Case ID: UC-001
+Use Case Name: User Login
+Created By: Amaan Majeed  
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed
+Last Revision Date: 27-12-2023
+
+Actors: Store Owner, Cashier 
+
+Description: This use case allows registered store owners and cashiers to login to the POS system.
+
+Trigger: User clicks on the login button on the home page. 
+
+Preconditions:     
+1. User has a valid user account on the system
+2. User account is not locked or deactivated
+
+Postconditions:   
+1. Authenticated user is navigated to their default dashboard
+2. Session is established for the user
+
+Normal Flow:  
+1. User clicks on login button
+2. System displays login form   
+3. User enters username/email and password   
+4. User clicks submit button
+5. System authenticates credentials
+6. If valid, user is logged in and redirected to dashboard
+
+Alternative Flows:    
+1a. Invalid credentials:
+   - Error displayed
+   - User retries login   
+   - Resumes at step 3
+    
+2a. Authentication fails:   
+   - Error displayed
+   - Flow returns to step 2
+     
+Exceptions:     
+1. Empty fields: 
+   - Validation error
+   - Returns to step 2
+    
+2. Account locked:
+   - Message to contact admin
+   - User unable to login
+
+The use case ends when the user is successfully logged in or exits login page.  
+
+Frequency: Each access by a registered user
+
+
+
+
+
+
+
+
+
+
+Here is an extended use case description for the "Buy Item" feature:
+
+Use Case ID: UC-002
+Use Case Name: Buy Item  
+Created By: Amaan Majeed
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed 
+Last Revision Date: 27-12-2023
+
+Actors: Cashier, Customer
+
+Description: This use case allows a cashier to sell an item to a customer by adding it to the order.
+
+Trigger: Cashier clicks on the "Add Item" button or scans item barcode.
+
+Preconditions:  
+1. Cashier is logged into the POS system
+2. Item details are available in the inventory database
+
+Postconditions:
+1. Item is added to the customer's order
+2. Inventory quantity is updated  
+
+Normal Flow:
+1. Cashier selects or scans the item  
+2. Cashier specifies item quantity
+3. System adds item to order 
+4. Cashier can add more items or proceed to payment
+
+Alternative Flows:
+1a. Out of stock item:
+   - Message displayed
+   - Cashier checks alternate options
+   
+2a. Invalid barcode:
+   - Warning message 
+   - Cashier manually inputs item
+
+Exceptions:  
+1. Empty quantity:
+   - Validation prompt
+   - Cashier specifies quantity
+   
+2. Database error:
+   - Error message  
+   - Cashier retries transaction
+   
+The use case ends when the payment is received or order is cancelled.
+
+Frequency: Each time an item is sold to a customer.
+
+
+
+
+
+
+Here is an extended use case description for the "Stock Prediction" feature:
+
+Use Case ID: UC-003
+Use Case Name: Stock Prediction
+Created By: Amaan Majeed
+Date Created: 27-12-2023  
+Last Updated By: Amaan Majeed
+Last Revision Date: 27-12-2023
+
+Actors: Store Owner
+
+Description: This use case allows the system to analyze historical sales data and predict future demand for inventory planning.
+
+Trigger: The system automatically runs the machine learning model on a periodic basis (e.g. daily/weekly).
+
+Preconditions:  
+- Historical sales data is available
+- ML model is trained
+
+Postconditions:
+- Predicted inventory needs are generated for upcoming period
+
+Normal Flow:
+1. System accesses sales transaction database
+2. ML model analyzes historical sales patterns  
+3. Model uses algorithms to predict future demand
+4. Predictions are stored in the system
+
+Alternative Flows:
+1a. Insufficient data:
+   - Notification sent to owner   
+   - Owner provides additional inputs
+   
+2a. Model requires retraining:
+   - System prompts retraining   
+   - New model deployed after validation
+   
+Exceptions:
+1. Data error:
+   - Logs error  
+   - Retry with cleaned data
+   
+2. Prediction deviations:
+   - Alerts sent for manual review
+   
+The use case ends after completion of prediction cycle.
+
+Frequency: As per configured periodic schedule. 
+
+
+
+
+
+Here is an extended use case description for the "Product Recommendations" feature:
+
+Use Case ID: UC-004
+Use Case Name: Product Recommendations  
+Created By: Amaan Majeed
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed
+Last Revision Date: 27-12-2023
+
+Actors: Store Owner, Cashier
+
+Description: This use case allows the system to generate product recommendations for customers during checkout.
+
+Trigger: Customer initiates payment for current order.
+
+Preconditions:  
+- Customer's purchase history data is available
+- ML model is trained for recommendations
+
+Postconditions: 
+- Recommended additional products are displayed to customer
+
+Normal Flow:
+1. System retrieves customer's order details  
+2. ML model analyzes purchase patterns
+3. Related and complementary products are identified  
+4. Recommendations are displayed to customer
+5. Customer can optionally add products to order
+
+Alternative Flows:
+1a. Insufficient data:
+   - Generic popular products showed
+
+Exceptions:  
+1. System/model error:
+   - Standard backups are displayed
+   
+2. Network failure:  
+   - Recommendations not showed
+
+The use case ends after customer completes payment.
+
+Frequency: During each checkout process.
+
+
+
+
+
+
+Here is an extended use case description for the "Accounting Integration" feature:
+
+Use Case ID: UC-005  
+Use Case Name: Accounting Integration
+Created By: Amaan Majeed
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed  
+Last Revision Date: 27-12-2023
+
+Actors: Store Owner
+
+Description: This use case allows transactional data to be synced between the POS system and accounting software.
+
+Trigger: The sync is automatically triggered on a periodic basis (e.g. daily). 
+
+Preconditions:  
+- POS system and accounting software are configured for integration
+- Credentials are provided to access accounting APIs  
+
+Postconditions:
+- Transactions are updated in both systems
+
+Normal Flow: 
+1. POS system collects transactions since last sync
+2. APIs are used to connect to accounting software
+3. Transactional data is mapped and synced in both directions
+4. Sync status is stored in audit logs
+
+Alternative Flows:
+1a. API or network error:
+   - Error logged  
+   - Manual sync initiated
+   
+Exceptions:   
+1. Validation error:
+   - Errors logged
+   - Problem transactions skipped
+   
+2. Software incompatibility:  
+   - Alert sent to developer
+   
+The use case ends after successful sync operation.
+
+Frequency: Based on integrated apps configuration schedules.
+
+
+
+
+
+
+Here is an extended use case description for the "Supplier Management" feature:
+
+Use Case ID: UC-006
+Use Case Name: Supplier Management
+Created By: Amaan Majeed 
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed
+Last Revision Date: 27-12-2023
+
+Actors: Store Owner
+
+Description: This use case allows store owners to manage supplier profiles, place orders, and track order status.
+
+Trigger: Store owner selects the "Suppliers" menu option.
+
+Preconditions: 
+- At least one supplier profile is created
+
+Postconditions:  
+- Supplier/order details are updated as per actions
+
+Normal Flow:
+1. Store owner views existing supplier list  
+2. Owner can add/edit supplier profiles
+3. Owner raises purchase requisitions against suppliers
+4. Supplier can update order statuses 
+5. Owner tracks orders to receipt of goods
+
+Alternative Flows:
+1a. Invalid data:
+   - Field level validation
+   - Data is corrected
+   
+Exceptions:    
+1. Database error:  
+   - Changes rolled back
+   - Errors logged
+   
+2. Network failure:
+   - Offline actions synced later
+
+The use case ends when owner exits supplier module.
+
+Frequency: Whenever supplier/order management is needed.
+
+
+
+
+
+
+Here is an extended use case description for the "Inventory Counting" feature:
+
+Use Case ID: UC-007
+Use Case Name: Inventory Counting
+Created By: Amaan Majeed
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed
+Last Revision Date: 27-12-2023
+
+Actors: Store Owner, Cashier
+
+Description: This use case allows users to physically count inventory stock and reconcile it with the system records.
+
+Trigger: Store owner/cashier initiates the inventory counting process.
+
+Preconditions:  
+- Necessary supplies/tools for counting are available
+- System is ready to receive count updates
+
+Postconditions:  
+- Physical count details are updated in the system
+- Inventory stock balances are reconciled
+
+Normal Flow:  
+1. Items are selected for counting
+2. Physical count is taken  
+3. Count details are entered in system
+4. Variances are identified and adjustments made
+5. Counts are submitted for approval
+
+Alternative Flows:
+1a. Variances found:
+   - Reasons analyzed  
+   - Corrective actions taken
+   
+Exceptions:
+1. Data entry error:
+   - Error corrected  
+   - Re-count as needed
+   
+2. System error:
+   - Counts saved offline
+   - Synced after issue resolved
+   
+Frequency: As per predefined inventory cycle/schedule.
+
+
+
+
+Here is an extended use case description for the "Sales Reporting" feature:
+
+Use Case ID: UC-008
+Use Case Name: Sales Reporting
+Created By: Amaan Majeed 
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed
+Last Revision Date: 27-12-2023
+
+Actors: Store Owner
+
+Description: This use case allows users to generate various sales reports from transactional data.
+
+Trigger: User selects "Reports" and chooses a report type. 
+
+Preconditions:  
+- Sufficient transaction history is available
+- user has login credentials
+
+Postconditions: 
+- Selected report is generated and displayed
+
+Normal Flow:
+1. User selects report type - daily/weekly/monthly etc.  
+2. Selection filters for date range, items etc are applied  
+3. System fetches relevant transactions
+4. Report is generated in predefined template
+5. User can view, email or export report
+
+Alternative Flows:  
+1a. No transactions found:
+   - Inform user
+   - Allow broader filters
+   
+Exceptions:
+1. Data error:
+   - System logs error
+   - Inform user
+   
+2. Network failure:
+   - Reports cached for later access
+   
+The use case ends when the user exits report view.
+
+Frequency: As and when analysis of sales is required.
+
+
+
+
+
+Here is an extended use case description for the "Multi-Location Monitoring" feature:
+
+Use Case ID: UC-009
+Use Case Name: Multi-Location Monitoring  
+Created By: Amaan Majeed
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed 
+Last Revision Date: 27-12-2023
+
+Actors: Store Manager
+
+Description: This use case allows store managers to monitor operations across multiple branch locations from a centralized system.
+
+Trigger: Manager logs into central system and selects location dashboard.
+
+Preconditions:  
+- POS systems deployed across all locations  
+- Locations configured in central system
+
+Postconditions:
+- Operation metrics and KPIs are visible for each location
+
+Normal Flow:
+1. Manager selects location from list
+2. Key metrics for sales, inventory, staff etc are displayed  
+3. Drill down into transaction details is available
+4. Alerts for exceptions are visible
+5. Manager can action on issues remotely
+
+Alternative Flows:
+1a. Location offline:
+   - Delayed metrics synced
+   - Manager notified  
+   
+Exceptions:  
+1. System/connectivity error:
+   - error handled  
+   - Metrics cached
+
+Frequency: As required to monitor operations performance.
+
+The use case ends when manager exits location dashboard.
+
+
+
+
+Here is an extended use case for "Alerts for Low Stock":
+
+Use Case ID: UC-010
+Use Case Name: Alerts for Low Stock  
+Created By: Amaan Majeed
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed
+Last Revision Date: 27-12-2023 
+
+Actors: Store Owner, Cashier
+
+Description: This use case allows the system to monitor inventory levels and generate alerts when stock of an item goes below predefined thresholds.
+
+Trigger: Inventory quantity is updated after a sale.
+
+Preconditions:
+- Inventory thresholds are configured per item
+- System has real-time inventory data
+
+Postconditions: 
+- Alert notifications are sent as per configured rules
+
+Normal Flow:
+1. Sale reduces stock of an item 
+2. System checks stock against thresholds
+3. If below, alert is triggered
+4. Alert notification is sent to concerned users
+5. Users can take timely replenishment action
+
+Alternative Flows:  
+1a. Threshold breach after hours:
+   - Notification next business day
+
+Exceptions:
+1. Data error:
+   - Alert generated manually
+
+The use case ends after stock replenishment actions.
+
+Frequency: Real-time after each inventory update.
+
+
+
