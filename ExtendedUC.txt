@@ -1,4 +1,57 @@
 Use Case ID: UC-001
+Use Case Name: Buy Item  
+Created By: Amaan Majeed
+Date Created: 27-12-2023
+Last Updated By: Amaan Majeed 
+Last Revision Date: 27-12-2023
+
+Actors: Cashier, Customer
+
+Description: This use case allows a cashier to sell an item to a customer by adding it to the order.
+
+Trigger: Cashier clicks on the "Add Item" button or scans item barcode.
+
+Preconditions:  
+1. Cashier is logged into the POS system
+2. Item details are available in the inventory database
+
+Postconditions:
+1. Item is added to the customer's order
+2. Inventory quantity is updated  
+
+Normal Flow:
+1. Cashier selects or scans the item  
+2. Cashier specifies item quantity
+3. System adds item to order 
+4. Cashier can add more items or proceed to payment
+
+Alternative Flows:
+1a. Out of stock item:
+   - Message displayed
+   - Cashier checks alternate options
+   
+2a. Invalid barcode:
+   - Warning message 
+   - Cashier manually inputs item
+
+Exceptions:  
+1. Empty quantity:
+   - Validation prompt
+   - Cashier specifies quantity
+   
+2. Database error:
+   - Error message  
+   - Cashier retries transaction
+   
+The use case ends when the payment is received or order is cancelled.
+
+Frequency: Each time an item is sold to a customer.
+
+
+
+
+
+Use Case ID: UC-002
 Use Case Name: User Login
 Created By: Amaan Majeed  
 Date Created: 27-12-2023
@@ -56,67 +109,6 @@ Frequency: Each access by a registered user
 
 
 
-
-
-
-Here is an extended use case description for the "Buy Item" feature:
-
-Use Case ID: UC-002
-Use Case Name: Buy Item  
-Created By: Amaan Majeed
-Date Created: 27-12-2023
-Last Updated By: Amaan Majeed 
-Last Revision Date: 27-12-2023
-
-Actors: Cashier, Customer
-
-Description: This use case allows a cashier to sell an item to a customer by adding it to the order.
-
-Trigger: Cashier clicks on the "Add Item" button or scans item barcode.
-
-Preconditions:  
-1. Cashier is logged into the POS system
-2. Item details are available in the inventory database
-
-Postconditions:
-1. Item is added to the customer's order
-2. Inventory quantity is updated  
-
-Normal Flow:
-1. Cashier selects or scans the item  
-2. Cashier specifies item quantity
-3. System adds item to order 
-4. Cashier can add more items or proceed to payment
-
-Alternative Flows:
-1a. Out of stock item:
-   - Message displayed
-   - Cashier checks alternate options
-   
-2a. Invalid barcode:
-   - Warning message 
-   - Cashier manually inputs item
-
-Exceptions:  
-1. Empty quantity:
-   - Validation prompt
-   - Cashier specifies quantity
-   
-2. Database error:
-   - Error message  
-   - Cashier retries transaction
-   
-The use case ends when the payment is received or order is cancelled.
-
-Frequency: Each time an item is sold to a customer.
-
-
-
-
-
-
-Here is an extended use case description for the "Stock Prediction" feature:
-
 Use Case ID: UC-003
 Use Case Name: Stock Prediction
 Created By: Amaan Majeed
@@ -168,7 +160,6 @@ Frequency: As per configured periodic schedule.
 
 
 
-Here is an extended use case description for the "Product Recommendations" feature:
 
 Use Case ID: UC-004
 Use Case Name: Product Recommendations  
@@ -217,7 +208,6 @@ Frequency: During each checkout process.
 
 
 
-Here is an extended use case description for the "Accounting Integration" feature:
 
 Use Case ID: UC-005  
 Use Case Name: Accounting Integration
@@ -267,7 +257,6 @@ Frequency: Based on integrated apps configuration schedules.
 
 
 
-Here is an extended use case description for the "Supplier Management" feature:
 
 Use Case ID: UC-006
 Use Case Name: Supplier Management
@@ -317,8 +306,6 @@ Frequency: Whenever supplier/order management is needed.
 
 
 
-Here is an extended use case description for the "Inventory Counting" feature:
-
 Use Case ID: UC-007
 Use Case Name: Inventory Counting
 Created By: Amaan Majeed
@@ -366,7 +353,6 @@ Frequency: As per predefined inventory cycle/schedule.
 
 
 
-Here is an extended use case description for the "Sales Reporting" feature:
 
 Use Case ID: UC-008
 Use Case Name: Sales Reporting
@@ -416,7 +402,6 @@ Frequency: As and when analysis of sales is required.
 
 
 
-Here is an extended use case description for the "Multi-Location Monitoring" feature:
 
 Use Case ID: UC-009
 Use Case Name: Multi-Location Monitoring  
@@ -462,7 +447,6 @@ The use case ends when manager exits location dashboard.
 
 
 
-Here is an extended use case for "Alerts for Low Stock":
 
 Use Case ID: UC-010
 Use Case Name: Alerts for Low Stock  
