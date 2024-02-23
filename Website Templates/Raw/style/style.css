@@ -1,0 +1,87 @@
+body {
+  background-color: #f0f0f0;
+}
+
+.root {
+  padding: 50px;
+}
+
+.storename {
+  display: flex;
+  justify-content: center;
+}
+
+.formleft {
+  width: 60%;
+}
+
+.upperform,
+.lowerform {
+  display: flex;
+  width: 60%;
+}
+
+.formleft,
+.formright {
+  width: 48%;
+}
+
+.formleft label,
+.formright label,
+.address label,
+.phone label,
+.billnote label{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 330px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.formleft input,
+.formright input,
+.address input,
+.phone input,
+.billnote input {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+
+.address{
+    width: 70%;
+}
+
+.address label{
+    width: 95%;
+}
+
+.address input{
+    flex: 0 0 365px;
+}
+
+.phone label{
+    justify-content: stretch;
+}
+
+.phone input{
+    flex: 0 0 100px;
+}
+
+.billnote label{
+    width: 90%;
+}
+
+.billnote input{
+    flex: 0 0 637px;
+}
+
+.lowerform {
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.bottomup {
+  display: flex;
+}

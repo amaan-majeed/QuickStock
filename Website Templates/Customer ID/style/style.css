@@ -1,0 +1,59 @@
+body{
+    background-color: #f0f0f0;
+}
+
+.header{
+    color: #7e4305;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+
+.center-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.square-div {
+    width: auto;
+    height: auto;
+    border: 1px solid grey;
+    margin-bottom: 50px;
+    padding: 30px;
+}
+
+
+
+.myform label{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 350px;
+  line-height: 26px;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.myform input, .myform select {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+    background-color: white;
+}
+
+
+.endbtn{
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 2px; 
+}
+
+button{
+    padding: 0;
+}
+
+.disable{
+    color: grey;
+}
+
+
