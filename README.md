@@ -4,7 +4,7 @@ A React Based machine Learning Project
 
 ## Versions
 
-[Latest](https://docs.google.com/presentation/d/1xCcLJTOMYJ8PQbAC__HOvDYHZKjk5dk3J8jiXrmnk1k/edit) \ 
+[Latest](https://docs.google.com/presentation/d/1xCcLJTOMYJ8PQbAC__HOvDYHZKjk5dk3J8jiXrmnk1k/edit) \
 [Version 4](https://docs.google.com/document/d/1eyD3ssta1M_ggFq6GJaDky_YmyA9cXtm/edit) \
 [Version 3](https://docs.google.com/document/d/1Xw2VrslMhif1rFqritd1bGzJ1lPlju2B/edit) \
 [Version 2](https://docs.google.com/document/d/16fSmm-9pQVW1sa_Pc8qsjiEn3kRVXKg4/) \
