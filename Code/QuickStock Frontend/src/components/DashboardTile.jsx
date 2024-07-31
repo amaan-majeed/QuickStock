@@ -7,8 +7,8 @@ export default function DashboardTile(props) {
 
         <div className="tile" style={{backgroundColor: props.color}}>
         <div className="status-content">
-          <p className="stats-tile">Today's Visits</p>
-          <p className="stats-number">1234234234</p>
+            <p className="stats-tile">{props.title}</p>
+            <p className="stats-number">{props.value}</p>
         </div>
       </div>
     </div>

@@ -35,6 +35,7 @@ p{
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1000;
 }
 
 .left{
@@ -129,10 +130,12 @@ p{
 
 .main{
   margin: 0 20px;
-  margin-top: 70px;
   /* width: 80%; */
-  
   margin-left: 275px;
+}
+
+.ml-top{
+  margin-top: 70px;
 }
 
 
@@ -156,6 +159,14 @@ p{
 .dashboard-header{
   margin: 20px 0;
   font-weight: 200;
+}
+
+.icons{
+  
+}
+
+.icons span{
+  padding-right: 10px;
 }
 
 .tile{
@@ -266,7 +277,7 @@ p{
   background-color: #d7d9db;
   padding: 20px;
   border-radius: 10px;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .add-product-header{
@@ -316,3 +327,5 @@ input[type=text], select , textarea{
   transform: translate(-50%, -50%);
   z-index: 999;
 }
+
+

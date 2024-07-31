@@ -13,7 +13,10 @@ export default function Navbar() {
   const [Navbar, setNavbar] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const name = useSelector(selectName);
+  const userName = useSelector(selectName);
+  // const name = JSON.parse(userName);
+  const name = userName.replace(/"/g, "");
+
     
     const toggleNavbar = () => {
         if (Navbar) {
