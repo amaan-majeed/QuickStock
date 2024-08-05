@@ -14,6 +14,7 @@ const initialState = {
 
 export default function ProductAdd() {
   const [product, setProduct] = useState(initialState)
+  // const [Change, setChange] = useState(false)
   const { name, sku, category, quantity, price, description } = product
   const navigate = useNavigate()
   

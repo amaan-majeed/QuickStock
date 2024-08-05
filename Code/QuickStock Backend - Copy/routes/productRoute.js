@@ -8,7 +8,6 @@ const {
   deleteProduct,
   updateProduct,
 } = require("../controller/productController");
-// const { upload } = require("../utils/fileUpload");
 
 router.post("/", protect, createProduct);
 router.patch("/:id", protect, updateProduct);
