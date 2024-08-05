@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "QuickStock",
+  "name": "QuickStock: Automate you Retail Ops",
   "icons": [
     {
       "src": "favicon.ico",

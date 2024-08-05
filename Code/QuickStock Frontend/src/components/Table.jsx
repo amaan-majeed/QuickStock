@@ -1,23 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import productService from '../redux/features/product/productService';
-import { selectIsLoggedIn } from '../redux/features/auth/authSlice';
-import { useSelector } from 'react-redux';
+// import React, { useEffect, useState } from 'react';
+// import productService from '../redux/features/product/productService';
+// import { selectIsLoggedIn } from '../redux/features/auth/authSlice';
+// import { useSelector } from 'react-redux';
+// import { useNavigate } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { AiOutlineEye } from "react-icons/ai";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { toast } from "react-toastify";
+import productService from "../redux/features/product/productService";
 
-export default function Table() {
-  const isLoggedin = useSelector(selectIsLoggedIn);
-  const [productsList, setProductsList] = useState([]);
+export default function Table(props) {
 
-  useEffect(() => {
-    if (isLoggedin === true) {
-      const products = productService.getAllProducts();
-      products.then(data => {
-        setProductsList(data)
-        console.log(productsList);
-      })
+  const DeleteProduct = async (id) => {
+    console.log(id)
+    if (!id) {
+      toast.error("ID not recieved")
+    } else {
+      try {
+        console.log("try block Delete")
+        productService.deleteProduct(id);
+      } catch (error) {
+        toast.error(error.message);
+      }
     }
-  }, [isLoggedin,productsList])
+  }
+
+  const confirmDelete = (id) => {
+    confirmAlert({
+      title: 'Delete Product',
+      message: 'Are you sure to do delete this product.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => DeleteProduct(id)
+        },
+        {
+          label: 'Cancel',
+        }
+      ]
+    });
+  }
   
   return (
     <>
@@ -36,8 +59,9 @@ export default function Table() {
             </tr>
           </thead>
         <tbody>
-          {productsList.map((product, index) => {
+          {props.productsList.map((product, index) => {
             const {_id, name, category, price, quantity} = product
+            
             return (
               <tr>
                 <th scope="row">{index + 1}</th>
@@ -53,8 +77,8 @@ export default function Table() {
                   <span>
                     <FaEdit size={20} color={"#009688"} />
                   </span>
-                  <span>
-                    <FaTrashAlt size={20} color={"#e91e63"} />
+                  <span className="hover-pointer">
+                    <FaTrashAlt size={20} color={"#e91e63"} onClick={() => {confirmDelete(_id)}}/>
                   </span>
                 </td>
               </tr>

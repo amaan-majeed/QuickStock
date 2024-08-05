@@ -12,6 +12,11 @@ export default function SideBar() {
             </Link>
           </li>
           <li>
+            <Link to="/dashboard" className="no-style">
+              <i className="fa-solid fa-house"></i> Home
+            </Link>
+          </li>
+          <li>
             <Link to="/products" className="no-style">
               <i className="fa-solid fa-cart-plus"></i>Products
             </Link>

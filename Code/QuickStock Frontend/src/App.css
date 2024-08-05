@@ -329,3 +329,7 @@ input[type=text], select , textarea{
 }
 
 
+.hover-pointer{
+  cursor: pointer;
+}
+
