@@ -30,12 +30,24 @@ const deleteProduct = async (id) => {
   }
 }
 
+// Get All Products
+const getProduct = async (id) => {
+  console.log("Prod Service - Fetch Product")
+  try {
+    const response = await axios.get(API_URL + id)
+    return response.data
+  } catch (error) {
+    toast.error(error)
+  }
+}
+
 
 
 const productService = {
   createProduct,
   getAllProducts,
-  deleteProduct
+  deleteProduct,
+  getProduct
 };
 
 export default productService
