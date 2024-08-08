@@ -1,16 +1,15 @@
-import React from 'react'
-import productService from '../redux/features/product/productService';
+import React, { useEffect, useState } from 'react'
+import userService from '../redux/features/user/userService';
 
 export default function UserDisplay() {
-    const {id} = useParams();
     const [user, setUser] = useState()
 
     useEffect(() => {
-        const user = ;
-        product?.then(data => {
-            setProduct(data);
+        const user = userService.getUser();
+        user?.then(data => {
+            setUser(data);
         })    
-    }, [id])
+    }, [])
   
   return (
     <>
@@ -20,25 +19,21 @@ export default function UserDisplay() {
       <div className='col-lg-6 col-md-12 form-container'>
       
         <div className="product-name">
-          <p>Product Name: {product?.name}</p>
-          <p></p>
+          <p>User Name: {user?.name}</p>
         </div>
 
         <div className="product-sku">
-          <p>Product SKU: {product?.sku}</p>
+          <p>User Email: {user?.email}</p>
         </div>
 
         <div className="product-category">
-          <p>Product Category: {product?.category}</p>
+          <p>User Phone: {user?.phone}</p>
         </div>
 
         <div className="product-price">
-          <p>Product Price: {product?.price}</p>
+          <p>User Bio: {user?.bio}</p>
         </div>
 
-        <div className="product-quantity">
-          <p>Product Quantity: {product?.quantity}</p>
-        </div>
         </div>
     </div>
     </>
