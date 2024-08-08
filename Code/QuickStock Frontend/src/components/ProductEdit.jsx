@@ -26,7 +26,7 @@ export default function ProductEdit() {
 }, [id])
   
   const handleInputChange = (e) => {
-    const { name, value } = e.target.value
+    const { name, value } = e.target
     setProduct({ ...product, [name]: value })
   };
 

@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 import { getLoginStatus } from './services/authService';
 import { SET_LOGIN } from './redux/features/auth/authSlice';
 import ViewUser from './pages/ViewUser';
+import EditProduct from './pages/EditProduct';
 // import Loader from './components/Loader';
 
 axios.defaults.withCredentials = true;
@@ -39,6 +40,7 @@ function App() {
           <Routes>
             <Route path="/products" element={<AddProduct />} />
             <Route path="/productdetails/:id" element={<ViewProduct/>} />
+            <Route path="/editproduct/:id" element={<EditProduct/>} />
             <Route path="/profile/" element={<ViewUser/>} />
             <Route path="/editprofile" element={<EditProfile />} />
             <Route path="/dashboard" element={<Dashboard/>} />
