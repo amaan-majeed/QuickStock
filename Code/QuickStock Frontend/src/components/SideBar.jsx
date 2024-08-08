@@ -37,6 +37,11 @@ export default function SideBar() {
               <i className="fa-solid fa-chart-line"></i>ML Prediction
             </Link>
           </li>
+          <li>
+            <Link to="/changepassword" className="no-style">
+            <i class="fa-solid fa-lock"></i>Change Password
+            </Link>
+          </li>
           {/* <li>
             <Link to="/" className="no-style">
               <i className="fa-solid fa-clipboard"></i>Past record
