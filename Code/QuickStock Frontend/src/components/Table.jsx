@@ -72,14 +72,16 @@ export default function Table(props) {
                 <td>{quantity}</td>
                 <td>{quantity * price}</td>
                 <td className="icons">
-                  <Link to={`/productsdetail/${_id}`}>
+                  <Link to={`/productdetails/${_id}`}>
                     <span>
                       <AiOutlineEye size={25} color={"#2196f3"} />
                     </span>
                   </Link>
+                  <Link to={`/editproduct/${_id}`}>
                   <span>
                     <FaEdit size={20} color={"#009688"} />
                   </span>
+                  </Link>
                   <span className="hover-pointer">
                     <FaTrashAlt size={20} color={"#e91e63"} onClick={() => {confirmDelete(_id)}}/>
                   </span>

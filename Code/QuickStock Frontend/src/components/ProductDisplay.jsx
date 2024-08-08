@@ -7,12 +7,10 @@ export default function ProductDisplay() {
   const {id} = useParams();
   const [product, setProduct] = useState()
 
-  
   useEffect(() => {
       const product = productService.getProduct(id);
       product?.then(data => {
         setProduct(data);
-        // console.log(data);
       })    
   }, [id])
   
@@ -28,6 +26,7 @@ export default function ProductDisplay() {
             <p>Product Name: {product?.name}</p>
             <p></p>
           </div>
+
           <div className="product-sku">
             <p>Product SKU: {product?.sku}</p>
           </div>

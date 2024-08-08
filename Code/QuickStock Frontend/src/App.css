@@ -310,6 +310,12 @@ input[type=text], select , textarea{
   justify-content: center;
 }
 
+.btn-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 /* Loader */
 
