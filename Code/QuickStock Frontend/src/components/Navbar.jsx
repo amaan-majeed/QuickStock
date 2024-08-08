@@ -14,7 +14,6 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userName = useSelector(selectName);
-  // const name = JSON.parse(userName);
   const name = userName.replace(/"/g, "");
 
     

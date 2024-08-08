@@ -41,13 +41,24 @@ const getProduct = async (id) => {
   }
 }
 
+// Edit product
+const editProduct = async (id, formData) => {
+  console.log("Prod Service - Edit Product")
+  try {
+    const response = await axios.patch(API_URL + id, formData)
+    return response.data
+  } catch (error) {
+    toast.error(error)
+  }
+}
 
 
 const productService = {
   createProduct,
   getAllProducts,
   deleteProduct,
-  getProduct
+  getProduct,
+  editProduct
 };
 
 export default productService

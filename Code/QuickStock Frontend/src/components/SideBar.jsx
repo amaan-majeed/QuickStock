@@ -27,7 +27,7 @@ export default function SideBar() {
             </Link>
           </li>
           <li>
-            <Link to="/profile" className="no-style">
+            <Link to="/editprofile" className="no-style">
               <i className="fa-solid fa-user-plus"></i>Edit Profile
             </Link>
           </li>

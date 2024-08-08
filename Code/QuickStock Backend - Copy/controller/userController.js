@@ -13,7 +13,6 @@ const generateToken = (id) => {
 };
 
 // Register User
-
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   console.log(name);
@@ -144,7 +143,6 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 // Get User data
-
 const getUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
