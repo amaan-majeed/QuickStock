@@ -9,6 +9,7 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { toast } from "react-toastify";
 import productService from "../redux/features/product/productService";
+import { Link } from "react-router-dom";
 
 export default function Table(props) {
 
@@ -41,7 +42,7 @@ export default function Table(props) {
       ]
     });
   }
-  
+
   return (
     <>
       
@@ -71,9 +72,11 @@ export default function Table(props) {
                 <td>{quantity}</td>
                 <td>{quantity * price}</td>
                 <td className="icons">
-                  <span>
-                    <AiOutlineEye size={25} color={"#2196f3"} />
-                  </span>
+                  <Link to={`/productsdetail/${_id}`}>
+                    <span>
+                      <AiOutlineEye size={25} color={"#2196f3"} />
+                    </span>
+                  </Link>
                   <span>
                     <FaEdit size={20} color={"#009688"} />
                   </span>
